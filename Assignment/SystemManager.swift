@@ -29,4 +29,12 @@ class SystemManager {
         guard let loadingView = loadingView else { return }
         loadingView.removeFromSuperview()
     }
+    
+    func getDetailVC() -> UIViewController? {
+        let board = UIStoryboard(name: "Detail", bundle: nil)
+        guard let nextVC = board.instantiateViewController(withIdentifier: "Detail") as? DetailViewController else {
+            return nil
+        }
+        return nextVC
+    }
 }

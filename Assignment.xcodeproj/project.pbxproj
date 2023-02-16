@@ -40,6 +40,7 @@
 		CFAEF280299EA883006A9DE0 /* SystemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAEF27F299EA883006A9DE0 /* SystemManager.swift */; };
 		CFAEF283299EB321006A9DE0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAEF282299EB321006A9DE0 /* DetailViewController.swift */; };
 		CFAEF285299EB32A006A9DE0 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFAEF284299EB32A006A9DE0 /* Detail.storyboard */; };
+		CFAEF287299EBA25006A9DE0 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAEF286299EBA25006A9DE0 /* Enums.swift */; };
 		FC66C854A4E9213F673662DE /* Pods_Assignment_AssignmentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFDF47CCB69B3699409BC33F /* Pods_Assignment_AssignmentUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +106,7 @@
 		CFAEF27F299EA883006A9DE0 /* SystemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemManager.swift; sourceTree = "<group>"; };
 		CFAEF282299EB321006A9DE0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CFAEF284299EB32A006A9DE0 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
+		CFAEF286299EBA25006A9DE0 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 				CFAEF25C299DFBA1006A9DE0 /* DataViewModel.swift */,
 				CFAEF267299E093D006A9DE0 /* Controller.swift */,
 				CFAEF279299EA2AA006A9DE0 /* Extension.swift */,
+				CFAEF286299EBA25006A9DE0 /* Enums.swift */,
 				CFAEF260299DFBF4006A9DE0 /* Model */,
 				CFAEF249299DE1ED006A9DE0 /* Main */,
 				CFAEF24A299DE1FD006A9DE0 /* Detail */,
@@ -512,6 +515,7 @@
 			files = (
 				CFAEF262299DFC0C006A9DE0 /* NewEvent.swift in Sources */,
 				CFAEF27E299EA7B0006A9DE0 /* Loading.swift in Sources */,
+				CFAEF287299EBA25006A9DE0 /* Enums.swift in Sources */,
 				CFAEF25A299DFA3E006A9DE0 /* TVCell.swift in Sources */,
 				CFAEF24E299DE259006A9DE0 /* EventCell.swift in Sources */,
 				CFAEF268299E093D006A9DE0 /* Controller.swift in Sources */,

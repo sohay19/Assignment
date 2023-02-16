@@ -92,6 +92,22 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let nextVC = SystemManager.shared.getDetailVC() as? DetailViewController else { return }
+        nextVC.modalPresentationStyle = .fullScreen
+        nextVC.modalTransitionStyle = .coverVertical
+        present(nextVC, animated: true) { [self] in
+            switch indexPath.section {
+            case 0:
+                nextVC.setData(data: controller.getRecommend(index: indexPath.row), type: .RECOMMENDEVENT)
+            case 1:
+                nextVC.setData(data: controller.getNewEvent(index: indexPath.row), type: .NEWEVENT)
+            default:
+                break
+            }
+        }
+    }
 }
 
 extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -121,5 +137,14 @@ extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource,
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 15
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let nextVC = SystemManager.shared.getDetailVC() as? DetailViewController else { return }
+        nextVC.modalPresentationStyle = .fullScreen
+        nextVC.modalTransitionStyle = .coverVertical
+        present(nextVC, animated: true) { [self] in
+            nextVC.setData(data: controller.getNewEvent(index: indexPath.row), type: .TV)
+        }
     }
 }
