@@ -11,6 +11,7 @@ import Kingfisher
 class EventCell: UITableViewCell {
     @IBOutlet weak var imgThumbnail: UIImageView!
     @IBOutlet weak var btnReservation: UIButton!
+    @IBOutlet weak var scriptView: UIView!
     @IBOutlet weak var labelPrice: UILabel!
     @IBOutlet weak var labelDisplay: UILabel!
     @IBOutlet weak var labelName: UILabel!
@@ -24,10 +25,20 @@ class EventCell: UITableViewCell {
         initUI()
     }
     
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+        if highlighted {
+            self.backgroundColor = .lightGray.withAlphaComponent(0.1)
+        } else {
+            self.backgroundColor = .white
+        }
+    }
+    
     private func initUI() {
         self.selectionStyle = .none
         self.separatorInset = .zero
         //
+        scriptView.backgroundColor = .clear
         imgThumbnail.layer.cornerRadius = 10
         imgThumbnail.kf.indicatorType = .activity
         btnReservation.backgroundColor = .systemPink

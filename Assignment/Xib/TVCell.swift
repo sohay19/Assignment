@@ -12,6 +12,17 @@ class TVCell: UICollectionViewCell {
     @IBOutlet weak var imgThumbnail: UIImageView!
     @IBOutlet weak var labelTitle: UILabel!
     
+      
+    override var isHighlighted: Bool {
+        didSet {
+            if self.isHighlighted {
+                labelTitle.textColor = .lightGray
+            } else {
+                labelTitle.textColor = .black
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         initUI()
