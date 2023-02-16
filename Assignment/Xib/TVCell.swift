@@ -37,6 +37,18 @@ class TVCell: UICollectionViewCell {
     
     func putData(title:String, url:URL) {
         labelTitle.text = title
-        imgThumbnail.kf.setImage(with: url)
+        //
+        imgThumbnail.kf.setImage(
+            with: url,
+            placeholder: nil,
+            options: nil,
+            completionHandler: { result in
+                switch result {
+                case .success(_):
+                    break
+                case .failure(_):
+                    self.imgThumbnail.image = UIImage(named: "defaultImgL")
+                }
+            })
     }
 }

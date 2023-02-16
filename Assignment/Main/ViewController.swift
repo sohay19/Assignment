@@ -8,38 +8,34 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableMain: UITableView!
     @IBOutlet weak var line: UIView!
+    @IBOutlet weak var btnSearch: UIButton!
+    @IBOutlet weak var searchField: UITextField!
+    @IBOutlet weak var imgLogo: UIImageView!
     
-    private var isRefresh = false
     var controller = Controller()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         //
-        tableMain.dataSource = self
-        tableMain.delegate = self
-        //
-        controller.loadData {
-            DispatchQueue.main.async { [self] in
-                tableMain.reloadData()
-                guard let headerView = tableMain.tableHeaderView as? MainHeaderView else { return }
-                headerView.collectionTv.reloadData()
-                isRefresh = true
-                beginAppearanceTransition(false, animated: false)
-            }
-        }
-        initUI()
         registerCell()
+        tableMain.delegate = self
+        tableMain.dataSource = self
+        initUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //
-        if isRefresh {
-            endAppearanceTransition()
-            isRefresh = false
+        SystemManager.shared.openLoading(vc: self)
+        controller.loadData {
+            DispatchQueue.main.async { [self] in
+                tableMain.reloadData()
+                guard let headerView = tableMain.tableHeaderView as? MainHeaderView else { return }
+                headerView.collectionTv.reloadData()
+                SystemManager.shared.closeLoading()
+            }
         }
     }
         
@@ -59,6 +55,14 @@ class ViewController: UIViewController {
         headerView.setUI()
         headerView.setDelegate(dataSource: self, delegate: self)
         tableMain.tableHeaderView = headerView
+        //
+        imgLogo.image = UIImage(named: "logo")
+        searchField.placeholder = "피부시술을 검색해 보세요. :)"
+        searchField.borderStyle = .none
+        let border = CALayer()
+        border.frame = CGRect(x: 0, y: searchField.frame.size.height-1, width: searchField.frame.width, height: 2)
+        border.backgroundColor = UIColor.defaultPink.cgColor
+        searchField.layer.addSublayer(border)
     }
     
     private func registerCell() {

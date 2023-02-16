@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,28 +21,47 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pTX-uI-CdV" userLabel="SearchView">
                                 <rect key="frame" x="0.0" y="59" width="393" height="60"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" semanticContentAttribute="forceRightToLeft" searchBarStyle="prominent" translatesAutoresizingMaskIntoConstraints="NO" id="0AR-lK-ZYx">
-                                        <rect key="frame" x="60" y="2" width="324" height="56"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="BYZ-38-t0r" id="PyE-nU-y56"/>
-                                        </connections>
-                                    </searchBar>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SMS-Qz-0Ak">
                                         <rect key="frame" x="0.0" y="59" width="393" height="1"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="6fz-Oy-2xj"/>
                                         </constraints>
                                     </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ocF-Q7-g9Q">
+                                        <rect key="frame" x="12" y="9" width="36" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ocF-Q7-g9Q" secondAttribute="height" multiplier="1:1" id="HG5-cO-eLz"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a2l-Gb-ehG">
+                                        <rect key="frame" x="60" y="9" width="315" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhG-hA-Ix5">
+                                        <rect key="frame" x="353" y="16" width="22" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="qhG-hA-Ix5" secondAttribute="height" multiplier="1:1" id="XhT-vS-G3n"/>
+                                        </constraints>
+                                        <color key="tintColor" name="defaultPink"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="magnifyingglass" catalog="system"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="0AR-lK-ZYx" firstAttribute="centerY" secondItem="pTX-uI-CdV" secondAttribute="centerY" id="CxG-Wg-NN7"/>
-                                    <constraint firstItem="0AR-lK-ZYx" firstAttribute="leading" secondItem="pTX-uI-CdV" secondAttribute="leading" constant="60" id="DY3-IM-tRU"/>
+                                    <constraint firstItem="ocF-Q7-g9Q" firstAttribute="leading" secondItem="pTX-uI-CdV" secondAttribute="leading" constant="12" id="6FV-CS-ARp"/>
+                                    <constraint firstItem="qhG-hA-Ix5" firstAttribute="trailing" secondItem="a2l-Gb-ehG" secondAttribute="trailing" id="BtP-U1-KrL"/>
                                     <constraint firstAttribute="height" constant="60" id="Ee1-QO-SbP"/>
                                     <constraint firstAttribute="trailing" secondItem="SMS-Qz-0Ak" secondAttribute="trailing" id="IuH-hq-AVg"/>
-                                    <constraint firstAttribute="trailing" secondItem="0AR-lK-ZYx" secondAttribute="trailing" constant="9" id="N0q-RP-CVW"/>
+                                    <constraint firstItem="ocF-Q7-g9Q" firstAttribute="bottom" secondItem="a2l-Gb-ehG" secondAttribute="bottom" id="TMd-Hm-24Z"/>
+                                    <constraint firstItem="ocF-Q7-g9Q" firstAttribute="top" secondItem="a2l-Gb-ehG" secondAttribute="top" id="TZ6-LU-dfF"/>
+                                    <constraint firstItem="qhG-hA-Ix5" firstAttribute="centerY" secondItem="a2l-Gb-ehG" secondAttribute="centerY" id="deA-aR-1jO"/>
                                     <constraint firstAttribute="bottom" secondItem="SMS-Qz-0Ak" secondAttribute="bottom" id="j8q-D9-ket"/>
+                                    <constraint firstItem="a2l-Gb-ehG" firstAttribute="top" secondItem="pTX-uI-CdV" secondAttribute="top" constant="9" id="mNp-dR-Jk0"/>
+                                    <constraint firstAttribute="bottom" secondItem="a2l-Gb-ehG" secondAttribute="bottom" constant="15" id="me9-pS-rCM"/>
+                                    <constraint firstAttribute="trailing" secondItem="a2l-Gb-ehG" secondAttribute="trailing" constant="18" id="qTY-p1-XUn"/>
+                                    <constraint firstItem="a2l-Gb-ehG" firstAttribute="leading" secondItem="pTX-uI-CdV" secondAttribute="leading" constant="60" id="w7O-O0-ABb"/>
                                     <constraint firstItem="SMS-Qz-0Ak" firstAttribute="leading" secondItem="pTX-uI-CdV" secondAttribute="leading" id="y3b-Iz-uqA"/>
                                 </constraints>
                             </view>
@@ -63,9 +83,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnSearch" destination="qhG-hA-Ix5" id="3vL-Mw-piD"/>
+                        <outlet property="imgLogo" destination="ocF-Q7-g9Q" id="xtN-Yh-e47"/>
                         <outlet property="line" destination="SMS-Qz-0Ak" id="HJz-kG-N2w"/>
-                        <outlet property="searchBar" destination="0AR-lK-ZYx" id="5gj-Jd-0cp"/>
-                        <outlet property="searchDisplayController" destination="hBW-HM-MzH" id="TfX-WB-qR9"/>
+                        <outlet property="searchDisplayController" destination="WN4-wN-Feb" id="fTX-Ve-obh"/>
+                        <outlet property="searchField" destination="a2l-Gb-ehG" id="qQO-gT-dnY"/>
                         <outlet property="tableMain" destination="OR3-cl-foM" id="whp-NB-547"/>
                     </connections>
                 </viewController>
@@ -73,10 +95,25 @@
                 <searchDisplayController id="hBW-HM-MzH">
                     <connections>
                         <outlet property="delegate" destination="BYZ-38-t0r" id="nQh-JP-2xj"/>
-                        <outlet property="searchBar" destination="0AR-lK-ZYx" id="iLW-9j-4OO"/>
                         <outlet property="searchContentsController" destination="BYZ-38-t0r" id="S5R-YF-5Ra"/>
                         <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="3YB-op-NHS"/>
                         <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="v0W-fw-0rk"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="KOj-SP-3kA">
+                    <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="9K7-7k-2dY"/>
+                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="IRL-Ze-bNh"/>
+                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="sAJ-zY-Mca"/>
+                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="mbE-q4-mOV"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="WN4-wN-Feb">
+                    <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="wns-ng-vE9"/>
+                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="W2H-hi-00r"/>
+                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="TzP-yc-Ne5"/>
+                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="IGr-XP-UOp"/>
                     </connections>
                 </searchDisplayController>
             </objects>
@@ -84,6 +121,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <namedColor name="defaultPink">
+            <color red="0.86540311569999995" green="0.39641219379999998" blue="0.60393518209999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

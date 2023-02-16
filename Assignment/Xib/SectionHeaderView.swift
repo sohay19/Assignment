@@ -30,7 +30,7 @@ class SectionHeaderView: UIView {
         let lastRange = (titleAll as NSString).range(of: titleLast)
         attributeString.addAttribute(.font, value: UIFont.systemFont(ofSize: 15, weight: .semibold), range: allRange)
         attributeString.addAttribute(.foregroundColor, value: UIColor.black, range: firstRange)
-        attributeString.addAttribute(.foregroundColor, value: UIColor.systemPink, range: lastRange)
+        attributeString.addAttribute(.foregroundColor, value: UIColor.defaultPink, range: lastRange)
         labelTitle.attributedText = attributeString
     }
 }

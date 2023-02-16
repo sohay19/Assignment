@@ -41,7 +41,7 @@ class EventCell: UITableViewCell {
         scriptView.backgroundColor = .clear
         imgThumbnail.layer.cornerRadius = 10
         imgThumbnail.kf.indicatorType = .activity
-        btnReservation.backgroundColor = .systemPink
+        btnReservation.backgroundColor = .defaultPink
         btnReservation.layer.cornerRadius = 10
         btnReservation.titleLabel?.font = .systemFont(ofSize: 10, weight: .semibold)
         btnReservation.setTitleColor(.white, for: .normal)
@@ -50,15 +50,28 @@ class EventCell: UITableViewCell {
         labelDisplay.textColor = .gray
         labelName.font = .systemFont(ofSize: 15, weight: .semibold)
         labelName.textColor = .black
-        labelComment.font = .systemFont(ofSize: 12, weight: .regular)
+        labelComment.font = .systemFont(ofSize: 12, weight: .semibold)
         labelComment.textColor = .lightGray
+        labelComment.numberOfLines = 2
     }
     
     func putData(display:String, name:String, comment:String, url:URL, price:Int, wish:Int, review:Int, rate:Int) {
         labelDisplay.text = display
         labelName.text = name
         labelComment.text = comment
-        imgThumbnail.kf.setImage(with: url)
+        //
+        imgThumbnail.kf.setImage(
+            with: url,
+            placeholder: nil,
+            options: nil,
+            completionHandler: { result in
+                switch result {
+                case .success(_):
+                    break
+                case .failure(_):
+                    self.imgThumbnail.image = UIImage(named: "defaultImg")
+                }
+            })
         //
         setPrice(price: price)
         setWish(wish: wish)
@@ -80,9 +93,9 @@ class EventCell: UITableViewCell {
         let allRange = (strAll as NSString).range(of: strAll)
         let priceRange = (strAll as NSString).range(of: strPrice)
         let unitRange = (strAll as NSString).range(of: strUnit)
-        attributeString.addAttribute(.foregroundColor, value: UIColor.systemPink, range: allRange)
+        attributeString.addAttribute(.foregroundColor, value: UIColor.defaultPink, range: allRange)
         attributeString.addAttribute(.font, value: UIFont.systemFont(ofSize: 18, weight: .bold), range: priceRange)
-        attributeString.addAttribute(.font, value: UIFont.systemFont(ofSize: 15, weight: .regular), range: unitRange)
+        attributeString.addAttribute(.font, value: UIFont.systemFont(ofSize: 15, weight: .semibold), range: unitRange)
         labelPrice.attributedText = attributeString
     }
     // wish
@@ -94,9 +107,9 @@ class EventCell: UITableViewCell {
         let allRange = (strAll as NSString).range(of: strAll)
         let unitRange = (strAll as NSString).range(of: strUnit)
         let countRange = (strAll as NSString).range(of: strCnt)
-        attributeString.addAttribute(.font, value: UIFont.systemFont(ofSize: 12, weight: .semibold), range: allRange)
-        attributeString.addAttribute(.foregroundColor, value: UIColor.gray, range: unitRange)
-        attributeString.addAttribute(.foregroundColor, value: UIColor.systemPink, range: countRange)
+        attributeString.addAttribute(.font, value: UIFont.systemFont(ofSize: 12, weight: .bold), range: allRange)
+        attributeString.addAttribute(.foregroundColor, value: UIColor.lightGray, range: unitRange)
+        attributeString.addAttribute(.foregroundColor, value: UIColor.defaultPink, range: countRange)
         labelWish.attributedText = attributeString
     }
     // review
@@ -108,9 +121,9 @@ class EventCell: UITableViewCell {
         let allRange = (strAll as NSString).range(of: strAll)
         let unitRange = (strAll as NSString).range(of: strUnit)
         let countRange = (strAll as NSString).range(of: strCnt)
-        attributeString.addAttribute(.font, value: UIFont.systemFont(ofSize: 12, weight: .semibold), range: allRange)
-        attributeString.addAttribute(.foregroundColor, value: UIColor.gray, range: unitRange)
-        attributeString.addAttribute(.foregroundColor, value: UIColor.systemPink, range: countRange)
+        attributeString.addAttribute(.font, value: UIFont.systemFont(ofSize: 12, weight: .bold), range: allRange)
+        attributeString.addAttribute(.foregroundColor, value: UIColor.lightGray, range: unitRange)
+        attributeString.addAttribute(.foregroundColor, value: UIColor.defaultPink, range: countRange)
         labelReview.attributedText = attributeString
     }
     // rate
@@ -122,9 +135,9 @@ class EventCell: UITableViewCell {
         let allRange = (strAll as NSString).range(of: strAll)
         let unitRange = (strAll as NSString).range(of: strUnit)
         let countRange = (strAll as NSString).range(of: strCnt)
-        attributeString.addAttribute(.font, value: UIFont.systemFont(ofSize: 12, weight: .semibold), range: allRange)
-        attributeString.addAttribute(.foregroundColor, value: UIColor.gray, range: unitRange)
-        attributeString.addAttribute(.foregroundColor, value: UIColor.systemPink, range: countRange)
+        attributeString.addAttribute(.font, value: UIFont.systemFont(ofSize: 12, weight: .bold), range: allRange)
+        attributeString.addAttribute(.foregroundColor, value: UIColor.lightGray, range: unitRange)
+        attributeString.addAttribute(.foregroundColor, value: UIColor.defaultPink, range: countRange)
         labelRate.attributedText = attributeString
     }
     // 카운팅
