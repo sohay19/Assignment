@@ -34,6 +34,7 @@ class EventCell: UITableViewCell {
         }
     }
     
+    // UI 세팅
     private func initUI() {
         self.selectionStyle = .none
         self.separatorInset = .zero
@@ -54,7 +55,7 @@ class EventCell: UITableViewCell {
         labelComment.textColor = .lightGray
         labelComment.numberOfLines = 2
     }
-    
+    /// 이벤트 데이터 넣기
     func putData(display:String, name:String, comment:String, url:URL, price:Int, wish:Int, review:Int, rate:Int) {
         labelDisplay.text = display
         labelName.text = name
@@ -83,7 +84,6 @@ class EventCell: UITableViewCell {
             setRate(rate: 0.0)
         }
     }
-    
     // price
     private func setPrice(price:Int) {
         let strPrice = String(price / 10000)

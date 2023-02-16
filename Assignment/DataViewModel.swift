@@ -13,18 +13,17 @@ class DataViewModel {
     private var recommendList:[RecommendEvent] = []
     private var newEventList:[NewEvent] = []
     
+    // 각 데이터리스트 전달
     func getTvList() -> [YSTv] {
         return tvList
     }
-    
     func getRecommendList() -> [RecommendEvent] {
         return recommendList
     }
-    
     func getNewEventList() -> [NewEvent] {
         return newEventList
     }
-    
+    // 서버에서 데이터 가져오기
     func getData(url:URL, completaion: @escaping(() -> Void)) {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -48,7 +47,7 @@ class DataViewModel {
             }
         }.resume()
     }
-    
+    // 결과에서 데이터만 저장
     private func setData(_ data:Results) {
         tvList = data.ysTvList
         recommendList = data.recommendEventList

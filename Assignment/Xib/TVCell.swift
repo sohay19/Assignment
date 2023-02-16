@@ -28,13 +28,14 @@ class TVCell: UICollectionViewCell {
         initUI()
     }
     
+    // UI 초기화
     private func initUI() {
         imgThumbnail.layer.cornerRadius = 10
         imgThumbnail.kf.indicatorType = .activity
         labelTitle.font = .systemFont(ofSize: 12, weight: .regular)
         labelTitle.textColor = .black
     }
-    
+    /// 여신TV 데이터 넣기
     func putData(title:String, url:URL) {
         labelTitle.text = title
         //

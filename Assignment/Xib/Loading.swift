@@ -19,6 +19,7 @@ class Loading:UIView {
         super.init(coder: coder)
     }
     
+    /// 로딩 뷰 UI 세팅
     func setUI() {
         self.backgroundColor = .white.withAlphaComponent(0.5)
         indicator.startAnimating()

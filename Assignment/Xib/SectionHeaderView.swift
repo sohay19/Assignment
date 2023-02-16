@@ -20,6 +20,7 @@ class SectionHeaderView: UIView {
         super.init(coder: coder)
     }
 
+    /// 섹션 헤더 UI 세팅
     func setUI(titleFirst:String, titleLast:String) {
         line.backgroundColor = .black
         //

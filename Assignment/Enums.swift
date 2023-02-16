@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+// 콘텐츠 타입
 enum ContentType:Int {
     case TV = 0
     case RECOMMENDEVENT = 1
