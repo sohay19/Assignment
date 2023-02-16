@@ -7,14 +7,4 @@ target 'Assignment' do
 
   pod 'Kingfisher'
   # Pods for Assignment
-
-  target 'AssignmentTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'AssignmentUITests' do
-    # Pods for testing
-  end
-
 end
